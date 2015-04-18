@@ -4,6 +4,9 @@
 #Start screensaver
 exec xscreensaver -no-splash &
 
+#Setup xfce power management
+exec xfce4-power-manager &
+
 #Start default applications
 exec sensible-browser &
 exec thunderbird &
