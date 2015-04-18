@@ -1,4 +1,4 @@
-.local
+local
 *.swp
 .fluxbox/lastwallpaper
 oh-my-zsh/cache/
