@@ -1,5 +1,6 @@
 #!/bin/bash
 #Bootstrap a basic desktop environment
+env_repo="${HOME}/env"
 
 if [ -x /usr/bin/lsb_release ]; then
     os_name=`/usr/bin/lsb_release -i -s`
@@ -47,6 +48,6 @@ for config_file in ${config_files}; do
         fi
 
         #Link to our env dir
-        ln -s ${HOME}/env/${config_file} ${HOME}/${config_file}
+        ln -s ${env_repo}/${config_file} ${HOME}/${config_file}
     fi
 done
