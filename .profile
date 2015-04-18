@@ -37,9 +37,9 @@ if [ "${ZSH_VERSION}" ]; then
     #Set zsh similar to bash to use ${sources} in a for loop below
     set -o shwordsplit
     HOSTNAME=`hostname`
-    shell_sources="${env_repo}/google-cloud-sdk/completion.zsh.inc \
-                  ${env_repo}/google-cloud-sdk/path.zsh.inc \
-                  ${env_repo}/zshrc"
+    shell_sources="${env_repo}/zshrc \
+                   ${env_repo}/google-cloud-sdk/completion.zsh.inc \
+                   ${env_repo}/google-cloud-sdk/path.zsh.inc"
 fi
 
 #Build a list of sources with common_sources as overrides
