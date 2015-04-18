@@ -1,3 +1,10 @@
+#Set title correctly
+case $TERM in
+  xterm*|screen*)
+    precmd () {print -Pn "\e]0;%m:%~\a"}
+    ;;
+esac
+
 PROMPT=$'
 %{$fg[cyan]%}%/%{$reset_color%} $(git_prompt_info)%{$fg_bold[black]%}[%m]%{$reset_color%} %{$fg_bold[black]%}%{$reset_color%}
 %{$fg_bold[black]%}ム%{$reset_color%} '
