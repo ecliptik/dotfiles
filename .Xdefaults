@@ -1,0 +1,20 @@
+XTerm*locale: true
+Xterm*saveLines: 50000
+Xterm*borderWidth: 0
+XTerm*selectToClipboard: true
+XTerm*cursorBlink: true
+XTerm*ScrollBar: false
+xTerm*font: -*-terminus-medium-*-*-*-18-*-*-*-*-*-iso10646-*
+
+urxvt.foreground: #ffffff
+URxvt*.transparent: true
+! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt*.shading: 30
+URxvt.scrollBar: false
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+URxvt.font: -*-terminus-medium-*-*-*-18-*-*-*-*-*-iso10646-*

@@ -1,0 +1,14 @@
+alias jezzy='ssh -X -C micheal@192.168.1.51'
+
+#Set aliases depending on OS
+case ${os_name_generic} in
+    Linux*|Darwin*)
+        #Use htop
+        if [ -x /usr/bin/htop ]; then
+            alias top='/usr/bin/htop'
+        fi
+
+        #Use colors for ls
+        eval `dircolors -b`
+    ;;
+esac

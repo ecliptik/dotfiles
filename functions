@@ -1,0 +1,21 @@
+#Git functions
+get_dir() {
+    printf "%s" $(pwd | sed "s:$HOME:~:")
+}
+
+get_sha() {
+    git rev-parse --short HEAD 2>/dev/null
+}
+
+#Convert to mp4
+mkmp4 ()
+{
+outputdir="/home/mediaroot/Movies/Queue"
+mp4log="/var/log/mp4/${1}-`date +%F`.log"
+
+source=${1}
+dest=`echo ${source} | sed -e "s/mkv/mp4/g"`
+
+/usr/bin/HandBrakeCLI -e x264 -q 22.0 -r 29.97 --pfr -a 1 -E faac -B 256 -6 dpl2 -R Auto -D 1.5 -f mp4 -Y 1080 -X 1920 --loose-anamorphic --keep-display-aspect --large-file -i ${source} -o /${outputdir}/${dest} > ${mp4log}
+
+}

@@ -1,0 +1,66 @@
+#Debian
+export DEBEMAIL="ecliptik@gmail.com"
+export DEBFULLNAME="Micheal Waltz"
+
+#GIT
+export GIT_SSL_NO_VERIFY=true
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+# Explicitly unset color (default anyhow). Use 1 to set it.
+GIT_PS1_SHOWCOLORHINTS=
+GIT_PS1_DESCRIBE_STYLE="branch"
+GIT_PS1_SHOWUPSTREAM="auto git"
+
+#KVM
+export LIBVIRT_DEFAULT_URI=qemu:///system
+
+#Java
+JAVA_HOME="/opt/java/current"
+
+#Setup VIM
+export VISUAL=vi
+export EDITOR=vi
+
+LESS='-isgR'
+export MANPAGER='less -isgR'
+
+#Set locale
+export LC_ALL=
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+
+#If the user doesn't have a .inputrc, use the one in /etc.
+if [ ! -r "${HOME}/.inputrc" ]; then
+    export INPUTRC=/etc/inputrc
+fi
+
+#Determine OS information
+os_name_generic=`uname -s`
+arch=`uname -m`
+
+#Set vars depending on OS
+case ${os_name_generic} in
+    Darwin*)
+        PATH="${HOME}/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/heroku/bin:$PATH"
+        MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+        distro_name=`sw_vers -productName | sed -e "s/\ //g"`
+        distro_version=`sw_vers -productVersion`
+        os_name="${distro_name}-${distro_version}"
+
+    ;;
+    Linux*)
+        PATH="${HOME}/bin:$JAVA_HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin:$PATH"
+        distro_name=`lsb_release -is`
+        distro_version=`lsb_release -rs`
+        os_name="${distro_name}-${distro_version}"
+
+    ;;
+    SunOS*)
+        os_name=`uname -r | sed -e 's/^5.\([56]\)/2.\1/' -e 's/^5.//' -e 's/^/solaris/'`
+        #Define TERM for Solaris since it doesn't have a termcap for xterm-256color
+        TERM="xterm"
+        stty erase '^?'
+    ;;
+esac
+

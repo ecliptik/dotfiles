@@ -1,0 +1,55 @@
+#Baisc mailbox settings
+set spoolfile=~/mbox
+set record=~/mail/sent
+set folder=~/mail
+set use_envelope_from=yes
+set editor = "vim"
+
+#GPG
+set pgp_sign_as=0xCD3671F9 # your key
+set pgp_timeout=3600
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+set crypt_replysign
+set crypt_verify_sig=yes
+set crypt_autopgp=yes
+set pgp_auto_decode=yes # traditional pgp support
+set pgp_use_gpg_agent = yes
+source ~/.mutt/gpg.rc
+
+#Google IMAP Configuration
+set imap_user = "ecliptik@gmail.com"
+#set imap_pass = "PASSWORD" # I recommend not setting this here, put inputting it manually when asked
+set smtp_url = "smtp://ecliptik@gmail.com@smtp.gmail.com:587"
+#set smtp_pass = "PASSWORD" # ditto
+set from = "ecliptik@gmail.com"
+set realname = "Micheal Waltz"
+
+#Folder setup
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set imap_check_subscribed
+set hostname = gmail.com
+set mail_check = 120
+set timeout = 300
+set imap_keepalive = 300
+set postponed = "+[GMail]/Drafts"
+# Gmail SMTP stores message automatically
+# http://superuser.com/questions/224524/sending-mails-via-mutt-and-gmail-duplicates
+#set record = "+[GMail]/Sent Mail"
+unset record
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+set move = no
+set include
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+bind editor ^T complete

@@ -1,0 +1,17 @@
+[group]  (workspace=[current])
+ [app] (name=aterm) (class=XTerm)
+  [Position]	(UPPERLEFT)	{81 0}
+[end]
+[group]  (workspace=[current])
+ [app] (name=virt-manager) (class=Virt-manager)
+  [Position]	(UPPERLEFT)	{81 0}
+[end]
+[group]  (workspace=[current])
+ [app] (class=Thunderbird)
+  [Position]	(UPPERLEFT)	{81 0}
+[end]
+[app] (class=Gnome-terminal)
+  [Deco]	{NONE}
+  [Sticky]	{yes}
+  [Maximized]	{yes}
+[end]

@@ -1,0 +1,23 @@
+#!/bin/sh
+# Applications you want to run with fluxbox.
+
+#Start screensaver
+exec xscreensaver -no-splash &
+
+#Start default applications
+exec sensible-browser &
+exec thunderbird &
+
+#Startup network manager
+exec Networkmanager &
+exec nm-applet &
+
+#Start dropbox
+exec /opt/dropbox-dist/dropboxd &
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+exec fluxbox
+# or if you want to keep a log:
+# exec fluxbox -log "${HOME}/.fluxbox/log"
