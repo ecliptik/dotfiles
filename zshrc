@@ -58,6 +58,9 @@ esac
 
 # User configuration
 
+#Use ctrl-r for backwards history search
+bindkey '^R' history-incremental-pattern-search-backward
+
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment

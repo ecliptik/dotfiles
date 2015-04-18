@@ -38,7 +38,7 @@ List of dotfiles and short description
 - .vimrc
     - configuration file for vim
 - .zshrc
-    -symlink to zshrc
+    - symlink to zshrc
 - aliases
     - common shell aliases
 - bash_colors
