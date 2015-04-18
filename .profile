@@ -22,7 +22,7 @@ if [ "$BASH" ]; then
                   /etc/bash_completion.d/git \
                   ${HOME}/bin/google-cloud-sdk/path.bash.inc \
                   ${HOME}/bin/google-cloud-sdk/completion.bash.inc \
-                  ${HOME}/env/bash_profile"
+                  ${HOME}/env/bashrc"
 fi
 
 if [ "${ZSH_VERSION}" ]; then
