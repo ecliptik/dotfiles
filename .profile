@@ -1,5 +1,5 @@
 #Set our git repository location
-env_repo="${HOME}/env"
+dotfiles="${HOME}/dotfiles"
 
 #Set a umask
 umask 002
@@ -13,23 +13,23 @@ arch=`uname -m`
 
 #Setup our shell source files
 ##This is the sources file to load before anything else to setup and dependencies other source files may need
-pre_sources="${env_repo}/vars"
+pre_sources="${dotfiles}/vars"
 
 ##Sources shared by both zsh and bash
-common_sources="${env_repo}/functions \
-                ${env_repo}/aliases \
-                ${env_repo}/.gpg_config \
-                ${env_repo}/local"
+common_sources="${dotfiles}/functions \
+                ${dotfiles}/aliases \
+                ${dotfiles}/.gpg_config \
+                ${dotfiles}/local"
 
 ##bash specific sources
 if [ "$BASH" ]; then
-    shell_sources="${env_repo}/bash_colors \
+    shell_sources="${dotfiles}/bash_colors \
                   /etc/bash_completion \
                   /usr/local/etc/bash_completion \
                   /etc/bash_completion.d/git \
-                  ${env_repo}/google-cloud-sdk/completion.bash.inc \
-                  ${env_repo}/google-cloud-sdk/path.bash.inc \
-                  ${env_repo}/bashrc"
+                  ${dotfiles}/google-cloud-sdk/completion.bash.inc \
+                  ${dotfiles}/google-cloud-sdk/path.bash.inc \
+                  ${dotfiles}/bashrc"
 fi
 
 ##zsh specific sources
@@ -37,9 +37,9 @@ if [ "${ZSH_VERSION}" ]; then
     #Set zsh similar to bash to use ${sources} in a for loop below
     set -o shwordsplit
     HOSTNAME=`hostname`
-    shell_sources="${env_repo}/zshrc \
-                   ${env_repo}/google-cloud-sdk/completion.zsh.inc \
-                   ${env_repo}/google-cloud-sdk/path.zsh.inc"
+    shell_sources="${dotfiles}/zshrc \
+                   ${dotfiles}/google-cloud-sdk/completion.zsh.inc \
+                   ${dotfiles}/google-cloud-sdk/path.zsh.inc"
 fi
 
 #Build a list of sources with common_sources as overrides

@@ -1,27 +1,27 @@
-# Unified Enivronment Configuration
+# Dotfiles
 
 ## Using This Environment
 
-This repository is intended to live within ${HOME}/env and almost all files depend on this path.
+These dotfiles are intended to live within ${HOME}/dotfiles, although this can be configured in .profile and configure.sh.
 
 ### Initial Configuration
 
-The script configure.sh attempts to install a set of frequently used packages (for Ubuntu/Debian) and creates the proper links to this configuration repository in ${HOME}. It should be used on initial use of this repository and is unused afterwards.
+The script configure.sh attempts to install a set of frequently used packages (for Ubuntu/Debian) and creates the proper dotfile links to files in this repository.
 
 ### Shell Configuration Files
 
-Both zsh and bash shell configurations are designed share as much commonalaties as possible and provide a similar environment on Ubuntu, Debian, OSX, Red Hat, and Solaris systems.
+Both zsh and bash shell dotfiles are designed share as much commonalaties as possible and provide a similar environment on Ubuntu, Debian, OSX, Red Hat, and Solaris systems.
 
-The central file that ties everything together is .profile, with both .zshrc and .bashrc are symlinked to. This file determins the operating system and shell and then sets additional configurations depending on what the system environment is.
+The central dotfile that ties everything together is .profile, which both .zshrc and .bashrc are symlinked to. This file determins the operating system and shell and then sets additional configuration depending on what the system environment is.
 
 - For zsh [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) is used for shell customization
 - For bash bash-completion is enabled when available
 - Shell specific configuration is done in zshrc and bashrc
 - Additional shell/OS shared configuration may be done in vars, functions, and local files and can overrides oh-my-zsh and bash-completion
 
-## Files
+## Dot Files
 
-List of files in repository and short description
+List of dotfiles and short description
 
 - .Xdefaults
     - configuration for X client applications
@@ -56,17 +56,17 @@ List of files in repository and short description
 - local
     - local configuration files not stored on github
 
-## Directories
+## Dot Dirs
 
-List of directories in repository and short description
+List of dot directories and short description
 
 - .fluxbox
     - configuration files for fluxbox
 - .screenlayout
     - configuration files for xrandr
 - oh-my-zsh
-    - local copy of oh-my-zsh configurations
+    - local copy of oh-my-zsh
 - plugins
     - tmux plugins
-
-
+- google-cloud-sdk
+    - google cloud sdk dotfiles
