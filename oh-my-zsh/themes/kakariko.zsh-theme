@@ -6,7 +6,7 @@ case $TERM in
 esac
 
 PROMPT=$'
-%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)%{$fg_bold[black]%}[%m]%{$reset_color%} %{$fg_bold[black]%}%{$reset_color%}
+%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)%{$fg_bold[black]%}%m%{t$reset_color%} %{$fg_bold[black]%}%{$reset_color%}
 %{$fg_bold[black]%}ム%{$reset_color%} '
 
 PROMPT2="%{$fg_blod[black]%}%_> %{$reset_color%}"
