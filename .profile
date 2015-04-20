@@ -19,7 +19,7 @@ pre_sources="${dotfiles}/vars"
 common_sources="${dotfiles}/functions \
                 ${dotfiles}/aliases \
                 ${dotfiles}/.gpg_config \
-                ${dotfiles}/local"
+                ~/local"
 
 ##bash specific sources
 if [ "$BASH" ]; then
