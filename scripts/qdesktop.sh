@@ -2,7 +2,7 @@
 #Setup dynamic rdesktop connection
 
 #Get primary display resolution
-presolution=`xrandr --query | grep -A 1 -i primary | tail -n 1 | awk {'print $1'}`
+presolution=`xrandr --query | grep "\*\+"| head -n 1 | awk {'print $1'}`
 
 #Setup resolution
 width=`echo "${presolution}" | awk -Fx {'print $1'}`
