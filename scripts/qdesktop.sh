@@ -1,7 +1,6 @@
 #!/bin/sh
 #Setup dynamic rdesktop connection
 
-#Get primary display resolution
 presolution=`xrandr --query | grep "\*\+"| head -n 1 | awk {'print $1'}`
 
 #Setup resolution
