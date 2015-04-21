@@ -1,7 +1,7 @@
 #!/bin/sh
 #Setup dynamic rdesktop connection
 
-presolution=`xrandr --query | grep "\*\+"| head -n 1 | awk {'print $1'}`
+presolution=`xrandr --query | grep "\*" | head -n 1 | awk '{print $1}'`
 
 #Setup resolution
 width=`echo "${presolution}" | awk -Fx {'print $1'}`

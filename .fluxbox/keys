@@ -76,9 +76,6 @@ Mod4 F5 :Exec virt-manager
 #thunar
 Mod4 F6 :Exec thunar
 
-#hipchat
-Mod4 F7 :Exec /usr/bin/hipchat
-
 #lockscreen
 Control Mod1 L :Exec xscreensaver-command -lock
 
@@ -112,7 +109,7 @@ Control Mod4 Left :TakeToPrevWorkspace
 Control Mod4 Right :TakeToNextWorkspace
 
 #Setup Multi Monitor
-Mod4 F12 :Exec arandr
+Mod4 F7 :Exec ~/dotfiles/scripts/set-display.sh
 
 # change to a specific workspace
 Control F1 :Workspace 1
