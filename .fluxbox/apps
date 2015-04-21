@@ -1,18 +1,23 @@
 [group]  (workspace=[current])
- [app] (name=aterm) (class=XTerm)
-  [Position]	(UPPERLEFT)	{81 0}
-[end]
-[group]  (workspace=[current])
  [app] (name=virt-manager) (class=Virt-manager)
-  [Position]	(UPPERLEFT)	{81 0}
+  [Workspace]	{3}
+  [Maximized]	{yes}
 [end]
 [group]  (workspace=[current])
  [app] (class=Thunderbird)
-  [Position]	(UPPERLEFT)	{81 0}
+  [Workspace]	{1}
+  [Maximized]	{yes}
 [end]
 [app] (class=Gnome-terminal)
   [Deco]	{NONE}
   [Sticky]	{yes}
   [Maximized]	{yes}
-  [Layer] {12}
+  [Layer]	{12}
+[end]
+[app] (name=Chromium-browser) (class=Chromium-browser) (role=browser)
+  [Workspace]	{0}
+  [Maximized]	{yes}
+[end]
+[app] (name=rdesktop) (class=rdesktop)
+  [Workspace]	{2}
 [end]
