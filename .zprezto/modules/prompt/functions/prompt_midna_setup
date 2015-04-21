@@ -13,6 +13,12 @@ function prompt_midna_precmd {
   if (( $+functions[python-info] )); then
     python-info
   fi
+  #Set title correctly
+  case $TERM in
+    xterm*|screen*)
+      precmd () {print -Pn "\e]0;%m:%~\a"}
+    ;;
+  esac
 }
 
 function prompt_midna_setup {

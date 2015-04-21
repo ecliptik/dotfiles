@@ -10,4 +10,5 @@ if [[ -s "${ZDOTDIR:-$HOME}/dotfiles/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/dotfiles/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
+#Set ctrl-r for reverse history search
+bindkey "^R" history-incremental-search-backward
