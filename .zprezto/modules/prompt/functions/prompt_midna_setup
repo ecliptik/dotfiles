@@ -1,9 +1,9 @@
 function prompt_midna_precmd {
   # Check for untracked files or updated submodules since vcs_info does not.
   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    branch_format="(${_prompt_midna_colors[1]}%b%f%u%c${_prompt_midna_colors[4]}●%f)"
+    branch_format="(${_prompt_midna_colors[2]}%b%f%u%c${_prompt_midna_colors[4]}●%f)"
   else
-    branch_format="(${_prompt_midna_colors[1]}%b%f%u%c)"
+    branch_format="(${_prompt_midna_colors[2]}%b%f%u%c)"
   fi
 
   zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
@@ -35,6 +35,7 @@ function prompt_midna_setup {
     "%F{red}"
     "%F{green}"
     "%F{white}"
+    "%F{reset}"
   )
 
   # Formats:
@@ -46,7 +47,7 @@ function prompt_midna_setup {
   #   %S - path in the repository
   local branch_format="(${_prompt_midna_colors[1]}%b%f%u%c)"
   local action_format="(${_prompt_midna_colors[5]}%a%f)"
-  local unstaged_format="${_prompt_midna_colors[2]}●%f"
+  local unstaged_format="${_prompt_midna_colors[4]}●%f"
   local staged_format="${_prompt_midna_colors[5]}●%f"
 
   # Set vcs_info parameters.
@@ -67,7 +68,7 @@ function prompt_midna_setup {
   # Define prompts.
   PROMPT="
 ${_prompt_midna_colors[1]}%m%f in ${_prompt_midna_colors[3]}%~%f "'${vcs_info_msg_0_}'"
-"'$python_info[virtualenv]'"${_prompt_midna_colors[3]}%% ${_prompt_midna_colors[6]}"
+"'$python_info[virtualenv]'"${_prompt_midna_colors[3]}%% ${_prompt_midna_colors[7]}"
   RPROMPT=''
 }
 
