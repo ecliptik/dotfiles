@@ -6,6 +6,7 @@ presolution=`xrandr --query | grep "\*\+"| head -n 1 | awk {'print $1'}`
 #Setup resolution
 width=`echo "${presolution}" | awk -Fx {'print $1'}`
 height=`echo "${presolution}" | awk -Fx {'print $2'}`
+height=`expr ${height} - 20`
 resolution="${width}x${height}"
 
 #Setup rdesktop command
