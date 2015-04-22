@@ -1,4 +1,4 @@
-alias jezzy='ssh -X -C micheal@192.168.1.51'
+alias jezzy="ssh -X -C micheal@192.168.1.51 -t 'tmux attach -d'"
 
 #Set aliases depending on OS
 case ${os_name_generic} in
