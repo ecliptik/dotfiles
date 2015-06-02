@@ -1,4 +1,5 @@
-alias jezzy='ssh -X -C micheal@192.168.1.51'
+alias jezzy="ssh -X -C micheal@192.168.1.51 -t 'tmux attach -d'"
+alias plexstart="docker run -d -h jezebel -v /home/micheal/Documents/plexconfig:/config -v /home/mediaroot/Movies/:/data -p 32400:32400 plex"
 
 #Set aliases depending on OS
 case ${os_name_generic} in
