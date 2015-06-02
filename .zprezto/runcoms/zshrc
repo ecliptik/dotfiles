@@ -12,3 +12,16 @@ fi
 
 #Set ctrl-r for reverse history search
 bindkey "^R" history-incremental-search-backward
+
+#Use quick vim switch
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
