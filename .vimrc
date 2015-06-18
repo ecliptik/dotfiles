@@ -1,6 +1,9 @@
+set nocompatible      " We're running Vim, not Vi!
 syntax on
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
 filetype indent plugin on
-filetype plugin on
 
 set background=dark
 set tabstop=4
@@ -30,6 +33,7 @@ set statusline+=%F
 set laststatus=2
 
 au FileType markdown setl sw=2 sts=2 et
+au FileType ruby setl sw=2 sts=2 et
 
 if has("multi_byte")
   if &termencoding == ""
