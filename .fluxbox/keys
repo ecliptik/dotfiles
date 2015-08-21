@@ -3,9 +3,14 @@ OnDesktop Mouse1 :HideMenus
 OnDesktop Mouse2 :WorkspaceMenu
 OnDesktop Mouse3 :RootMenu
 
-# scroll on the desktop to change workspaces
-OnDesktop Mouse4 :PrevWorkspace
-OnDesktop Mouse5 :NextWorkspace
+#Scrollwheel
+#OnDesktop Mouse4 :PrevWorkspace
+#OnDesktop Mouse5 :NextWorkspace
+
+#Scroll on the desktop to change workspaces
+#Click wheel left/right
+OnDesktop OnWindow Mouse6 :PrevWorkspace
+OnDesktop OnWindow Mouse7 :NextWorkspace
 
 # scroll on the toolbar to change current window
 OnToolbar Mouse4 :PrevWindow {static groups} (iconhidden=no)
