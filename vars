@@ -47,7 +47,7 @@ case ${os_name_generic} in
         distro_name=`sw_vers -productName | sed -e "s/\ //g"`
         distro_version=`sw_vers -productVersion`
         os_name="${distro_name}-${distro_version}"
-        docker-machine env default
+        eval "$(docker-machine env default)"
     ;;
     Linux*)
         PATH="${HOME}/bin:${HOME}/bin/google-cloud-sdk/bin:$JAVA_HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin:$PATH"
