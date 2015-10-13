@@ -10,6 +10,7 @@
   title_font = Monospace 12
   title_use_system_font = False
   window_state = maximise
+  scrollbar_position = disabled
 [keybindings]
 [layouts]
   [[default]]
