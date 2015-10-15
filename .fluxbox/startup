@@ -1,11 +1,11 @@
 #!/bin/sh
 # Applications you want to run with fluxbox.
 
-#Start screensaver
-exec xscreensaver -no-splash &
+#Start up mate settings
+exec /usr/bin/mate-settings-daemon &
 
-#Setup xfce power management
-exec xfce4-power-manager &
+#Start up mate-power manager
+exec mate-power-manager &
 
 #Start default applications
 exec sensible-browser &
@@ -14,9 +14,6 @@ exec thunderbird &
 #Startup network manager
 #exec Networkmanager &
 exec nm-applet &
-
-#Start dropbox
-exec /opt/dropbox-dist/dropboxd &
 
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.

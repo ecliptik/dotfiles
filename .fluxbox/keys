@@ -82,7 +82,7 @@ Mod4 F5 :Exec virt-manager
 Mod4 F6 :Exec thunar
 
 #lockscreen
-Control Mod1 L :Exec xscreensaver-command -lock
+#Control Mod1 L :Exec xscreensaver-command -lock
 
 # volume settings, using common keycodes
 # if these don't work, use xev to find out your real keycodes
