@@ -26,6 +26,12 @@
   [Maximized]	{yes}
   [Layer]	{12}
 [end]
+[app] (class=Mate-terminal)
+  [Deco]	{NONE}
+  [Sticky]	{yes}
+  [Maximized]	{yes}
+  [Layer]	{12}
+[end]
 [app] (name=Chromium-browser) (class=Chromium-browser) (role=browser)
   [Workspace]	{0}
   [Maximized]	{yes}

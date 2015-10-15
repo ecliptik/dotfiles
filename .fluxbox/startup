@@ -12,7 +12,7 @@ exec sensible-browser &
 exec thunderbird &
 
 #Startup network manager
-exec Networkmanager &
+#exec Networkmanager &
 exec nm-applet &
 
 #Start dropbox

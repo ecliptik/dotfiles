@@ -8,19 +8,25 @@ fi
 
 case ${os_name} in
     Ubuntu*)
-    packages="fluxbox feh rdesktop bash-completion tmux mutt gpgv chromium-browser gnome-terminal xfonts-terminus thunderbird git vim htop lxc-docker virt-manager build-essential arandr x11-xserver-utils xdg-utils keychain zsh"
+    packages="fluxbox feh rdesktop bash-completion tmux mutt gpgv chromium-browser mate-terminal xfonts-terminus thunderbird git vim htop virt-manager build-essential arandr x11-xserver-utils xdg-utils keychain zsh"
     editor="/usr/bin/vim.basic"
     browser="/usr/bin/chromium-browser"
     ;;
     Debian*)
-    packages="fluxbox feh rdesktop bash-completion tmux mutt gpgv chromium gnome-terminal xfonts-terminus git vim htop docker virt-manager build-essential arandr x11-xserver-utils xdg-utils keychain zsh"
+    packages="fluxbox feh rdesktop bash-completion tmux mutt gpgv chromium mate-terminal xfonts-terminus git vim htop virt-manager build-essential arandr x11-xserver-utils xdg-utils keychain zsh"
+    editor="/usr/bin/vim.basic"
+    browser="/usr/bin/chromium"
+    ;;
+    LinuxMint*)
+    packages="fluxbox feh rdesktop bash-completion tmux mutt gpgv chromium mate-terminal xfonts-terminus git vim htop virt-manager build-essential arandr x11-xserver-utils xdg-utils keychain zsh"
     editor="/usr/bin/vim.basic"
     browser="/usr/bin/chromium"
     ;;
 esac
 
 if [ -x /usr/bin/apt-get ]; then
-    sudo /usr/bin/apt-get -y install ${packages}
+    sudo /usr/bin/apt-get update
+    sudo /usr/bin/apt-get --install-suggests -y install ${packages}
 fi
 
 if [ -x /usr/bin/update-alternatives ]; then
