@@ -7,6 +7,9 @@ exec /usr/bin/mate-settings-daemon &
 #Start up mate-power manager
 exec mate-power-manager &
 
+#Start up mate-volume-control
+exec mate-volume-control-applet &
+
 #Start default applications
 exec sensible-browser &
 exec thunderbird &
