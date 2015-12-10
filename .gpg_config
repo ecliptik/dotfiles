@@ -12,7 +12,7 @@ if [ ! -d ${agentdir} ]; then
 fi
 
 #Only run the keychain agent if it's installed
-if [ -x /usr/bin/keychain ] || [ -x /bin/keychain ]; then
+if [ -x /usr/bin/keychain ] || [ -x /bin/keychain ] || [ -x /usr/local/bin/keychain ]; then
     eval $(keychain --timeout 480 --eval --quiet --dir ${agentdir} ~/.ssh/id_rsa)
     source ${agentdir}/${HOSTNAME}-sh
 fi
