@@ -1,18 +1,11 @@
-#GPG
-GPG_TTY=$(tty)
-export GPG_TTY
 export GPGKEY="CD3671F9"
 
-#Setup ssh and gpg agent
-#Use a local dir for our agents since we'll most likely be on multiple systems
-#and a shared home dir confuses things
-agentdir="/var/tmp/.keychain"
-if [ ! -d ${agentdir} ]; then
-    mkdir -p ${agentdir}
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+   . "${HOME}/.gpg-agent-info"
+  export GPG_AGENT_INFO
+  export SSH_AUTH_SOCK
+  export SSH_AGENT_PID
 fi
 
-#Only run the keychain agent if it's installed
-if [ -x /usr/bin/keychain ] || [ -x /bin/keychain ] || [ -x /usr/local/bin/keychain ]; then
-    eval $(keychain --timeout 480 --eval --quiet --dir ${agentdir} ~/.ssh/id_rsa)
-    source ${agentdir}/${HOSTNAME}-sh
-fi
+GPG_TTY=$(tty)
+export GPG_TTY

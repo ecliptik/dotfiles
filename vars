@@ -42,7 +42,7 @@ arch=`uname -m`
 #Set vars depending on OS
 case ${os_name_generic} in
     Darwin*)
-        PATH="${HOME}/bin:${HOME}/bin/google-cloud-sdk/bin:${HOME}/.rvm/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/heroku/bin:$PATH"
+        PATH="${HOME}/bin:${HOME}/bin/google-cloud-sdk/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/heroku/bin:/usr/local/MacGPG2/bin:$PATH"
         MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
         distro_name=`sw_vers -productName | sed -e "s/\ //g"`
         distro_version=`sw_vers -productVersion`
