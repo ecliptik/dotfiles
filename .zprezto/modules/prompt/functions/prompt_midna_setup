@@ -73,7 +73,7 @@ function prompt_midna_setup {
 
   # Define prompts.
   PROMPT="
-${_prompt_midna_colors[1]}%m%f in ${_prompt_midna_colors[3]}%~%f "'${vcs_info_msg_0_}'"
+${_prompt_midna_colors[1]}%m%f in ${_prompt_midna_colors[3]}%1/%f "'${vcs_info_msg_0_}'"
 "'$python_info[virtualenv]'"${_prompt_midna_colors[3]}%% ${_prompt_midna_colors[7]}"
   RPROMPT=''
 }
