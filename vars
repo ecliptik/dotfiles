@@ -30,6 +30,12 @@ export LC_ALL=
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 
+#Set GOPATH
+export GOPATH="${HOME}/work"
+if [ ! -d "${GOPATH}" ]; then
+    mkdir -p "${GOPATH}"
+fi
+
 #If the user doesn't have a .inputrc, use the one in /etc.
 if [ ! -r "${HOME}/.inputrc" ]; then
     export INPUTRC=/etc/inputrc
@@ -42,12 +48,12 @@ arch=`uname -m`
 #Set vars depending on OS
 case ${os_name_generic} in
     Darwin*)
-        PATH="${HOME}/bin:${HOME}/bin/google-cloud-sdk/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/heroku/bin:/usr/local/MacGPG2/bin:$PATH"
+        PATH="${HOME}/bin:${HOME}/bin/google-cloud-sdk/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/heroku/bin:/usr/local/MacGPG2/bin:${GOPATH}/bin:$PATH"
         MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
         distro_name=`sw_vers -productName | sed -e "s/\ //g"`
         distro_version=`sw_vers -productVersion`
         os_name="${distro_name}-${distro_version}"
-        eval "$(docker-machine env default)"
+        #eval "$(docker-machine env default)"
     ;;
     Linux*)
         PATH="${HOME}/bin:${HOME}/bin/google-cloud-sdk/bin:$JAVA_HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin:$PATH"
