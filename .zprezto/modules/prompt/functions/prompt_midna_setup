@@ -72,8 +72,7 @@ function prompt_midna_setup {
   zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
 
   # Define prompts.
-  PROMPT="
-${_prompt_midna_colors[1]}%3~%f "'${vcs_info_msg_0_}'"
+  PROMPT="${_prompt_midna_colors[1]}%3~%f "'${vcs_info_msg_0_}'"
 "'$python_info[virtualenv]'"${_prompt_midna_colors[3]}🐳  ${_prompt_midna_colors[7]}"
   RPROMPT=''
 }
