@@ -50,3 +50,7 @@ hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight CursorLine guibg=#303000 ctermbg=234
+
+"Set marker at line 80
+highlight ColorColumn ctermbg=234
+set colorcolumn=80
