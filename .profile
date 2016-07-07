@@ -53,3 +53,5 @@ for sourcefile in ${sources}; do
         source "${sourcefile}"
     fi
 done
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
