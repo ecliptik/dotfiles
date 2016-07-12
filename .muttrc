@@ -20,10 +20,11 @@ source ~/.mutt/gpg.rc
 #Google IMAP Configuration
 set imap_user = "ecliptik@gmail.com"
 #set imap_pass = "PASSWORD" # I recommend not setting this here, put inputting it manually when asked
-set smtp_url = "smtp://ecliptik@gmail.com@smtp.gmail.com:587"
+set smtp_url = "smtps://ecliptik@gmail.com@smtp.gmail.com:465"
 #set smtp_pass = "PASSWORD" # ditto
 set from = "ecliptik@gmail.com"
 set realname = "Micheal Waltz"
+set smtp_authenticators = "login"
 
 #Folder setup
 set folder = "imaps://imap.gmail.com:993"
@@ -36,7 +37,6 @@ set imap_keepalive = 300
 set postponed = "+[GMail]/Drafts"
 # Gmail SMTP stores message automatically
 # http://superuser.com/questions/224524/sending-mails-via-mutt-and-gmail-duplicates
-#set record = "+[GMail]/Sent Mail"
 unset record
 set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/bodies
@@ -53,3 +53,31 @@ hdr_order Date From To Cc
 alternative_order text/plain text/html *
 auto_view text/html
 bind editor ^T complete
+
+#Colors
+color normal  white default
+color attachment brightyellow default
+color hdrdefault cyan default
+color indicator black cyan
+color markers brightred default
+color quoted  green default
+color signature cyan default
+color status  brightgreen blue
+color tilde blue default
+color tree  red default
+
+color index red default ~P
+color index red default ~D
+color index magenta default ~T
+
+color header brightgreen default ^From:
+color header brightcyan default ^To:
+color header brightcyan default ^Reply-To:
+color header brightcyan default ^Cc:
+color header brightblue default ^Subject:
+
+color body  brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+# identifies email addresses
+
+color body  brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+# identifies URLs
