@@ -1,68 +1,92 @@
-#Baisc mailbox settings
-set spoolfile=~/mbox
-set record=~/mail/sent
-set folder=~/mail
-set use_envelope_from=yes
-set editor = "vim"
+#~/.mutt/muttrc
+set imap_user		= ecliptik@gmail.com
+set imap_pass		=
+set smtp_url		= smtps://ecliptik@gmail.com@smtp.gmail.com:465
+set smtp_pass		=
+set smtp_authenticators = "login"
+set from		= ecliptik@gmail.com
+set realname		= "Micheal Waltz"
+set editor		= 'vim -c "set spell spelllang=en_us"'
 
-#GPG
-set pgp_sign_as=0xCD3671F9 # your key
-set pgp_timeout=3600
-set crypt_autosign = yes
-set crypt_replyencrypt = yes
+# Don't let your firewall kill your idle connection.
+set imap_keepalive	= 900
+
+# Do not copy sent mail.  Gmail smtp already does this.
+set copy		= no
+
+# Imap
+set folder		= imaps://imap.gmail.com:993
+set spoolfile		= +INBOX
+set postponed		= +[Gmail]/Drafts
+
+# Cache
+set header_cache	= ~/.mutt/cache/headers
+set message_cachedir	= ~/.mutt/cache/bodies
+set certificate_file	= ~/.mutt/certificates
+
+# GPG
+set pgp_sign_as         = 0xCD3671F9
+set pgp_timeout         = 3600
+set crypt_autosign      = yes
+set crypt_replyencrypt  = yes
 set crypt_replysign
-set crypt_verify_sig=yes
-set crypt_autopgp=yes
-set pgp_auto_decode=yes # traditional pgp support
-set pgp_use_gpg_agent = yes
+set crypt_verify_sig    = yes
+set crypt_autopgp       = yes
+set pgp_auto_decode     = yes
+set pgp_use_gpg_agent   = yes
 source ~/.mutt/gpg.rc
 
-#Google IMAP Configuration
-set imap_user = "ecliptik@gmail.com"
-#set imap_pass = "PASSWORD" # I recommend not setting this here, put inputting it manually when asked
-set smtp_url = "smtps://ecliptik@gmail.com@smtp.gmail.com:465"
-#set smtp_pass = "PASSWORD" # ditto
-set from = "ecliptik@gmail.com"
-set realname = "Micheal Waltz"
-set smtp_authenticators = "login"
+#Disable Recall Postponed Message
+set recall              = no
 
-#Folder setup
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
-set imap_check_subscribed
-set hostname = gmail.com
-set mail_check = 120
-set timeout = 300
-set imap_keepalive = 300
-set postponed = "+[GMail]/Drafts"
-# Gmail SMTP stores message automatically
-# http://superuser.com/questions/224524/sending-mails-via-mutt-and-gmail-duplicates
-unset record
-set header_cache=~/.mutt/cache/headers
-set message_cachedir=~/.mutt/cache/bodies
-set certificate_file=~/.mutt/certificates
-set move = no
-set include
-set sort = 'threads'
-set sort_aux = 'reverse-last-date-received'
-set auto_tag = yes
-ignore "Authentication-Results:"
-ignore "DomainKey-Signature:"
-ignore "DKIM-Signature:"
-hdr_order Date From To Cc
-alternative_order text/plain text/html *
-auto_view text/html
+# Gmail style keybindings
+bind  editor <space> noop
+bind  index,pager c  mail 		#Compose
+macro index,pager e  "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive conversation"
+bind  generic     x  tag-entry		#Select Conversation
+bind  index       x  tag-thread		#Select Conversation
+bind  pager       x  tag-message	#Select Conversation
+bind  index,pager s  flag-message	#Star a message
+macro index,pager +  <save-message>=[Gmail]/Important<enter><enter> "Mark as important"
+macro index,pager !  <save-message>=[Gmail]/Spam<enter><enter> "Report spam"
+bind  index,pager a  group-reply	#Reply all
+bind  index,pager \# delete-thread	#Delete
+bind  index,pager l  copy-message	#Label
+bind  index,pager v  save-message	#Move to
+macro index,pager I  <set-flag>O	"Mark as read"
+macro index,pager U  <clear-flag>O	"Mark as unread"
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>"	"Go to all mail"
+macro index,pager gs <change-folder>=[Gmail]/Starred<enter>	"Go to 'Starred'"
+macro index,pager gd <change-folder>=[Gmail]/Drafts<enter>	"Go to 'Drafts'"
+macro index,pager gl <change-folder>?				"Go to 'Label'"
+macro index,pager gi <change-folder>=INBOX<enter> 		"Go to inbox"
+macro index,pager gt "<change-folder>=[Gmail]/Sent Mail<enter>"	"Go to 'Sent Mail'"
+folder-hook +INBOX 'macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive conversation"'
+folder-hook +[Gmail]/Trash macro index,pager y <save-message>=INBOX<enter><enter> "Move to inbox"
+folder-hook +[Gmail]/Starred bind  index,pager y flag-message #"Toggle star"
+
+#Other keybindings
 bind editor ^T complete
+bind index G imap-fetch-mail
+
+# This should be ' »›-‹L' to match Gmail, but $to_chars breaks on unicode.
+set to_chars		= ' +>-<L'
+# Don't move read mail.
+set move		= no
+
+# Sort by newest conversation first.
+set sort		= reverse-threads
+set sort_aux		= last-date-received
 
 #Colors
 color normal  white default
 color attachment brightyellow default
-color hdrdefault cyan default
-color indicator black cyan
+color hdrdefault magenta default
+color indicator default magenta
 color markers brightred default
-color quoted  green default
+color quoted  default default
 color signature cyan default
-color status  brightgreen blue
+color status  default cyan
 color tilde blue default
 color tree  red default
 
@@ -79,5 +103,5 @@ color header brightblue default ^Subject:
 color body  brightred default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 # identifies email addresses
 
-color body  brightblue default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+color body  brightmagenta default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
 # identifies URLs
