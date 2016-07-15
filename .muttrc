@@ -69,6 +69,10 @@ folder-hook +[Gmail]/Starred bind  index,pager y flag-message #"Toggle star"
 bind editor ^T complete
 bind index G imap-fetch-mail
 
+#Open urls with urlview
+macro index cb |urlview 'call urlview to extract URLs out of a message'
+macro pager cb |urlview 'call urlview to extract URLs out of a message'
+
 # This should be ' »›-‹L' to match Gmail, but $to_chars breaks on unicode.
 set to_chars		= ' +>-<L'
 # Don't move read mail.
