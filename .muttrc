@@ -1,8 +1,8 @@
 #~/.mutt/muttrc
 set imap_user		= ecliptik@gmail.com
-set imap_pass		=
+set imap_pass		= $IMAP_PASSWORD
 set smtp_url		= smtps://ecliptik@gmail.com@smtp.gmail.com:465
-set smtp_pass		=
+set smtp_pass		= $IMAP_PASSWORD
 set smtp_authenticators = "login"
 set from		= ecliptik@gmail.com
 set realname		= "Micheal Waltz"
