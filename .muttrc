@@ -4,29 +4,29 @@ set imap_pass		= $IMAP_PASSWORD
 set smtp_url		= smtps://ecliptik@gmail.com@smtp.gmail.com:465
 set smtp_pass		= $IMAP_PASSWORD
 set smtp_authenticators = "login"
-set from		= ecliptik@gmail.com
+set from		    = ecliptik@gmail.com
 set realname		= "Micheal Waltz"
-set editor		= 'vim -c "set spell spelllang=en_us"'
+set editor		    = 'vim -c "set spell spelllang=en_us"'
 
 # Don't let your firewall kill your idle connection.
-set imap_keepalive	= 900
+set imap_keepalive	= 28800
 
 # Do not copy sent mail.  Gmail smtp already does this.
-set copy		= no
+set copy		    = no
 
 # Imap
-set folder		= imaps://imap.gmail.com:993
+set folder		    = imaps://imap.gmail.com:993
 set spoolfile		= +INBOX
 set postponed		= +[Gmail]/Drafts
 
 # Cache
-set header_cache	= ~/.mutt/cache/headers
+set header_cache	    = ~/.mutt/cache/headers
 set message_cachedir	= ~/.mutt/cache/bodies
 set certificate_file	= ~/.mutt/certificates
 
 # GPG
 set pgp_sign_as         = 0xCD3671F9
-set pgp_timeout         = 3600
+set pgp_timeout         = 14400
 set crypt_autosign      = yes
 set crypt_replyencrypt  = yes
 set crypt_replysign
@@ -74,13 +74,13 @@ macro index cb |urlview 'call urlview to extract URLs out of a message'
 macro pager cb |urlview 'call urlview to extract URLs out of a message'
 
 # This should be ' »›-‹L' to match Gmail, but $to_chars breaks on unicode.
-set to_chars		= ' +>-<L'
+set to_chars    = ' +>-<L'
 # Don't move read mail.
 set move		= no
 
 # Sort by newest conversation first.
 set sort		= reverse-threads
-set sort_aux		= last-date-received
+set sort_aux	= last-date-received
 
 #Colors
 color normal  white default
