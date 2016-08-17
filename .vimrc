@@ -6,8 +6,9 @@ filetype plugin on    " Enable filetype-specific plugins
 filetype indent plugin on
 
 set background=dark
-set tabstop=4
-set expandtab
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
 set showmatch
 set autoindent
 set smartindent
