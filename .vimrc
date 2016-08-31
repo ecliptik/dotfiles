@@ -7,6 +7,7 @@ filetype indent plugin on
 
 set background=dark
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 set showmatch
@@ -16,9 +17,15 @@ set nocompatible
 set modeline
 set modelines=10
 set number
+set hlsearch
 
-highlight ExtraWhitespace ctermbg=red guibg=red
+" Show no-printable chars
+set list
+set listchars=tab:▸\ ,eol:\ 
+
+highlight ExtraWhitespace ctermbg=cyan guibg=cyan
 match ExtraWhitespace /\s\+$/
+match ExtraWhitespace /\t/
 
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
