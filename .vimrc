@@ -22,7 +22,7 @@ set hlsearch
 set list
 set listchars=tab:▸\ ,eol:\ 
 
-highlight ExtraWhitespace ctermbg=cyan guibg=cyan
+hi ExtraWhitespace ctermbg=cyan guibg=cyan
 match ExtraWhitespace /\s\+$/
 match ExtraWhitespace /\t/
 
@@ -53,4 +53,7 @@ set cursorline
 hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
-highlight CursorLine guibg=#303000 ctermbg=234
+hi CursorLine guibg=#303000 ctermbg=234
+
+"Search Highlight
+hi Search cterm=NONE ctermfg=white ctermbg=magenta
