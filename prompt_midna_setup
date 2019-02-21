@@ -65,7 +65,7 @@ function prompt_midna_setup {
 
   # Define prompts.
   source ${HOME}/dotfiles/kube-ps1/kube-ps1.sh
-  PROMPT=" "'${vcs_info_msg_0_}'"
+  PROMPT=""'${vcs_info_msg_0_}'"$(kube_ps1)
 ${_prompt_midna_colors[1]}%3/%f ""${_prompt_midna_colors[3]}🐳  ${_prompt_midna_colors[7]}"
   PROMPT='$(kube_ps1)'$PROMPT
   RPROMPT=''
