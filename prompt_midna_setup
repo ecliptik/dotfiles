@@ -1,18 +1,16 @@
 function prompt_midna_precmd {
+  BRANCH=`printf "\ue0a0"`
   # Check for untracked files or updated submodules since vcs_info does not.
   if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    branch_format="(${_prompt_midna_colors[2]}%b%f%u%c${_prompt_midna_colors[4]}●%f)"
+    branch_format="($BRANCH|${_prompt_midna_colors[2]}%b%f%u%c${_prompt_midna_colors[4]}●%f)"
   else
-    branch_format="(${_prompt_midna_colors[2]}%b%f%u%c)"
+    branch_format="($BRANCH|${_prompt_midna_colors[2]}%b%f%u%c)"
   fi
 
   zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
 
   vcs_info 'prompt'
 
-  if (( $+functions[python-info] )); then
-    python-info
-  fi
   #Set title correctly
   case $TERM in
     xterm*|screen*)
@@ -65,15 +63,11 @@ function prompt_midna_setup {
   zstyle ':vcs_info:*:prompt:*' formats "${branch_format}"
   zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
-  zstyle ':prezto:module:editor' key-bindings 'vi'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format '%B%F{red}❮%f%b'
-
-  # Set python-info parameters.
-  zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
-
   # Define prompts.
-  PROMPT="${_prompt_midna_colors[1]}%3/%f "'${vcs_info_msg_0_}'"
-"'$python_info[virtualenv]'"${_prompt_midna_colors[3]}🐳  ${_prompt_midna_colors[7]}"
+  source ${HOME}/dotfiles/kube-ps1/kube-ps1.sh
+  PROMPT=" "'${vcs_info_msg_0_}'"
+${_prompt_midna_colors[1]}%3/%f ""${_prompt_midna_colors[3]}🐳  ${_prompt_midna_colors[7]}"
+  PROMPT='$(kube_ps1)'$PROMPT
   RPROMPT=''
 }
 

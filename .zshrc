@@ -31,6 +31,7 @@ common_sources="${dotfiles}/functions \
                 ${dotfiles}/.gpg_config \
                 ${HOME}/local \
                 ${HOME}/.demandbase \
+                ${HOME}/dotfiles/kube-ps1/kube-ps1.sh \
                 ${HOME}/.rvm/scripts/rvm"
 
 ##bash specific sources
