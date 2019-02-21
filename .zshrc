@@ -52,6 +52,14 @@ if [ "${ZSH_VERSION}" ]; then
 
     #Enable backwards search
     bindkey '^R' history-incremental-pattern-search-backward
+
+    #Vim command line editor
+    autoload -z edit-command-line
+    zle -N edit-command-line
+    bindkey -M vicmd v edit-command-line
+
+    #Remove vim mode lags
+    export KEYTIMEOUT=1
 fi
 
 #Build a list of sources with common_sources as overrides
