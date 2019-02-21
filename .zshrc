@@ -48,6 +48,9 @@ if [ "${ZSH_VERSION}" ]; then
     set -o shwordsplit
     HOSTNAME=`hostname`
     shell_sources="${dotfiles}/zshrc"
+
+    #Enable backwards search
+    bindkey '^R' history-incremental-pattern-search-backward
 fi
 
 #Build a list of sources with common_sources as overrides
