@@ -54,7 +54,7 @@ List of dotfiles and short description
 
 ## Dot Dirs
 
-List of dot directories and short description
+List of dot directories and short description.
 
 - .fluxbox
     - configuration files for fluxbox
