@@ -14,10 +14,10 @@ Both zsh and bash shell dotfiles are designed share as much commonalaties as pos
 
 The central dotfile that ties everything together is .profile, which both .zshrc and .bashrc are symlinked to. This file determins the operating system and shell and then sets additional configuration depending on what the system environment is.
 
-- For zsh [prezto](https://github.com/sorin-ionescu/prezto) is used for shell customization
+- For zsh [zim](https://github.com/zimfw/zimfw) is used for shell customization
 - For bash bash-completion is enabled when available
 - Shell specific configuration is done in zshrc and bashrc
-- Additional shell/OS shared configuration may be done in vars, functions, and local files and can overrides prezto and bash-completion
+- Additional shell/OS shared configuration may be done in vars, functions, and local files and can overrides zim and bash-completion
 
 ## Dot Files
 
@@ -38,21 +38,17 @@ List of dotfiles and short description
 - .vimrc
     - configuration file for vim
 - .zshrc
-    - symlink to zshrc
+    - configuration file for zshrc
 - aliases
     - common shell aliases
 - bash_colors
     - ANSI colors for bash shell
 - bashrc
     - configuration file for bash shell
-- configure.sh
-    - initial system configuration
 - functions
     - common shell functions
 - vars
     - common shell variables
-- zshrc
-    - configuration file for zsh shell
 - local
     - local configuration files not stored on github
 
@@ -64,11 +60,9 @@ List of dot directories and short description
     - configuration files for fluxbox
 - .screenlayout
     - configuration files for xrandr
-- .zprezto
-    - local copy of zprezto
+- .zim
+    - local copy of zim
 - plugins
     - tmux plugins
-- google-cloud-sdk
-    - google cloud sdk dotfiles
 - scripts
     - various scripts to make things easier

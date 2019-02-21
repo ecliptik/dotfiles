@@ -1,4 +1,4 @@
-alias jezzy="ssh -X -C micheal@192.168.29.51 -t 'tmux attach -d'"
+alias jezzy="ssh -X -C micheal@192.168.7.250"
 alias be="bundle exec"
 
 #Set aliases depending on OS

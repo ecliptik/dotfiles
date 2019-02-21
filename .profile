@@ -29,8 +29,6 @@ if [ "$BASH" ]; then
                   /etc/bash_completion \
                   /usr/local/etc/bash_completion \
                   /etc/bash_completion.d/git \
-                  ${dotfiles}/google-cloud-sdk/completion.bash.inc \
-                  ${dotfiles}/google-cloud-sdk/path.bash.inc \
                   ${dotfiles}/bashrc"
 fi
 
@@ -39,9 +37,6 @@ if [ "${ZSH_VERSION}" ]; then
     #Set zsh similar to bash to use ${sources} in a for loop below
     set -o shwordsplit
     HOSTNAME=`hostname`
-    shell_sources="${dotfiles}/zshrc \
-                   ${dotfiles}/google-cloud-sdk/completion.zsh.inc \
-                   ${dotfiles}/google-cloud-sdk/path.zsh.inc"
 fi
 
 #Build a list of sources with common_sources as overrides

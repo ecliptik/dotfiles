@@ -1,0 +1,10 @@
+[user]
+    email = micheal@ecliptik.com
+    name = Micheal Waltz
+    signingkey = CD3671F9
+[push]
+    default = simple
+[core]
+    editor = vim
+[commit]
+    gpgsign = true

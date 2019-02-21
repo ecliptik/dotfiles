@@ -7,5 +7,6 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
   export SSH_AGENT_PID
 fi
 
+
 GPG_TTY=$(tty)
 export GPG_TTY
