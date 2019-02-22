@@ -26,3 +26,6 @@
 	path = .zim/modules/autosuggestions/external
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
 	ignore = untracked
+[submodule "spaceship-prompt"]
+	path = spaceship-prompt
+	url = https://github.com/denysdovhan/spaceship-prompt.git
