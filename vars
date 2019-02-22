@@ -93,6 +93,11 @@ case ${os_name_generic} in
         distro_name=`lsb_release -is`
         distro_version=`lsb_release -rs`
         os_name="${distro_name}-${distro_version}"
+
+        #pyenv setup
+        export PYENV_ROOT="$HOME/.pyenv"
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi
     ;;
     SunOS*)
         os_name=`uname -r | sed -e 's/^5.\([56]\)/2.\1/' -e 's/^5.//' -e 's/^/solaris/'`
