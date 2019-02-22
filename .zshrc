@@ -31,7 +31,6 @@ common_sources="${dotfiles}/functions \
                 ${dotfiles}/.gpg_config \
                 ${HOME}/local \
                 ${HOME}/.demandbase \
-                ${HOME}/dotfiles/kube-ps1/kube-ps1.sh \
                 ${HOME}/.rvm/scripts/rvm"
 
 ##bash specific sources
@@ -72,5 +71,5 @@ for sourcefile in ${sources}; do
     fi
 done
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# Additional PATH config
+export PATH="$PATH"

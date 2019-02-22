@@ -33,6 +33,7 @@ SPACESHIP_PROMPT_ORDER=(
   golang        # Go section
   php           # PHP section
   aws           # Amazon Web Services section
+  pyenv         # Pyenv section
   kubecontext   # Kubectl context section
   terraform     # Terraform workspace section
   exec_time     # Execution time
@@ -87,9 +88,12 @@ case ${os_name_generic} in
         #Setup ssh config for macos
         export GPG_TTY=$(tty)
         export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
+
+        #pyenv setup
+        export PATH="$(pyenv root)/shims:$PATH"
     ;;
     Linux*)
-        PATH="${HOME}/bin:${HOME}/bin/google-cloud-sdk/bin:$JAVA_HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin:$PATH"
+        PATH="${HOME}/bin:$JAVA_HOME/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/sbin:/usr/sbin:$PATH"
         distro_name=`lsb_release -is`
         distro_version=`lsb_release -rs`
         os_name="${distro_name}-${distro_version}"
