@@ -17,6 +17,7 @@ set modeline
 set modelines=10
 set number
 set hlsearch
+set backspace=2
 
 " Show no-printable chars
 set list
