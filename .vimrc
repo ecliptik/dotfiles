@@ -126,3 +126,4 @@ call pathogen#helptags()
 
 " Vim visual search/replace
 " https://www.reddit.com/r/vim/comments/19sm9v/replace_all_instances_of_currently_highlighted/
+" Select visual, use * to select all in file, then :%s//TEXT_TOREPLACE/g
