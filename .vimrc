@@ -1,27 +1,94 @@
-set nocompatible      " We're running Vim, not Vi!
-syntax on
-filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
-filetype indent plugin on
-
-set background=dark
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set showmatch
-set autoindent
-set smartindent
+" Don't try to be vi compatible
 set nocompatible
-set modeline
-set modelines=10
-set number
-set hlsearch
-set backspace=2
 
-" Show no-printable chars
-set list
-set listchars=tab:»·,nbsp:+,trail:\ ,extends:→,precedes:←
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
+
+" TODO: Load plugins here (pathogen or vundle)
+
+" Turn on syntax highlighting
+syntax on
+
+" For plugins to load correctly
+filetype plugin indent on
+
+" TODO: Pick a leader key
+" let mapleader = ","
+
+" Security
+set modelines=0
+
+" Show line numbers
+set number
+
+"Highlight current line
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+hi CursorLine guibg=#303000 ctermbg=234
+
+" Blink cursor on error instead of beeping (grr)
+set visualbell
+
+" Encoding
+set encoding=utf-8
+
+" Whitespace
+set wrap
+set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
+
+" Cursor motion
+set scrolloff=3
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
+
+" Allow hidden buffers
+set hidden
+
+" Rendering
+set ttyfast
+
+" Status bar
+set statusline+=%F\ %l\:%c
+set ruler
+set laststatus=2
+
+" Last line
+set showmode
+set showcmd
+
+" Searching
+nnoremap / /
+vnoremap / /
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+map <leader><space> :let @/=''<cr> " clear search
+
+" Remap help key.
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
+
+" Formatting
+map <leader>q gqip
+
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+" Uncomment this to enable by default:
+" set list " To enable by default
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 hi ExtraWhitespace ctermbg=cyan guibg=cyan
 match ExtraWhitespace /\s\+$/
@@ -34,28 +101,6 @@ autocmd BufWinLeave * call clearmatches()
 autocmd! BufRead,BufNewFile *.json set filetype=json
 autocmd! BufRead,BufNewFile *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
 
-set statusline+=%F
-set laststatus=2
-
-au FileType markdown setl sw=2 sts=2 et
-au FileType ruby setl sw=2 sts=2 et
-au FileType yaml setl sw=2 sts=2 et norelativenumber nocursorline
-au FileType python setl ts=8 et sw=4 sts=4 norelativenumber nocursorline
-
-if has("multi_byte")
-  if &termencoding == ""
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8                     " better default than latin1
-  setglobal fileencoding=utf-8           " change default file encoding when writing new files
-endif
-
-"Highlight current line
-set cursorline
-hi cursorline cterm=none term=none
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-hi CursorLine guibg=#303000 ctermbg=234
-
-"Search Highlight
-hi Search cterm=NONE ctermfg=white ctermbg=magenta
+" Color scheme (terminal)
+set t_Co=256
+set background=dark
