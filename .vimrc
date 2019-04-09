@@ -9,6 +9,12 @@ filetype off
 " Turn on syntax highlighting
 syntax on
 
+"Nerdtree
+"autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " For plugins to load correctly
 filetype plugin indent on
 
@@ -75,6 +81,12 @@ set smartcase
 set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
+" Remove arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
@@ -101,6 +113,16 @@ autocmd BufWinLeave * call clearmatches()
 autocmd! BufRead,BufNewFile *.json set filetype=json
 autocmd! BufRead,BufNewFile *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
 
+" map ctrl-c for visual copy
+map <C-c> "+y<CR>
+
+vnoremap s/ y:s/<c-r>/
+
 " Color scheme (terminal)
 set t_Co=256
 set background=dark
+execute pathogen#infect()
+call pathogen#helptags()
+
+" Vim visual search/replace
+" https://www.reddit.com/r/vim/comments/19sm9v/replace_all_instances_of_currently_highlighted/
