@@ -70,6 +70,3 @@ for sourcefile in ${sources}; do
         source "${sourcefile}"
     fi
 done
-
-# Additional PATH config
-export PATH="$PATH"

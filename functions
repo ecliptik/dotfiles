@@ -7,6 +7,14 @@ get_sha() {
     git rev-parse --short HEAD 2>/dev/null
 }
 
+#OktaAWSCLI
+okta-aws() {
+    withokta "aws --profile $1" $@
+}
+okta-sls() {
+    withokta "sls --stage $1" $@
+}
+
 #Convert to mp4
 mkmp4 ()
 {
