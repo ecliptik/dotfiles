@@ -53,4 +53,4 @@ if [ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]; then
     PATH="$HOME/.okta/bin:$PATH"
 fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin:${HOME}/.vimpkg/bin"" # Add RVM to PATH for scripting
