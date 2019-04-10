@@ -42,13 +42,14 @@ set encoding=utf-8
 
 " Whitespace
 set wrap
-set textwidth=79
 set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
 set noshiftround
+set autoindent
+set smartindent
 
 " Cursor motion
 set scrolloff=3
@@ -115,7 +116,6 @@ autocmd! BufRead,BufNewFile *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=ma
 
 " map ctrl-c for visual copy
 map <C-c> "+y<CR>
-
 vnoremap s/ y:s/<c-r>/
 
 " Color scheme (terminal)
