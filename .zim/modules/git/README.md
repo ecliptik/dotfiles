@@ -107,14 +107,18 @@ Aliases
   * `glG` displays the graph log with authors and dates.
   * `glv` displays the log verifying the GPG signature of commits.
   * `glc` displays the commit count for each contributor in descending order.
+  * `glr` manages reflog information.
 
 ### Merge
 
   * `gm` joins two or more development histories together.
+  * `gma` aborts the conflict resolution, and reconstructs the pre-merge state.
   * `gmC` performs the merge but does not commit.
   * `gmF` performs the merge generating a commit even if the merge resolved as a
     fast-forward.
-  * `gma` aborts the conflict resolution, and reconstructs the pre-merge state.
+  * `gmS` commits with GPG signature.
+  * `gmv` verifies the GPG signature of the tip commit of the side branch being
+    merged.
   * `gmt` runs the merge conflict resolution tools to resolve conflicts.
 
 ### Push
@@ -204,22 +208,20 @@ Aliases
 
   * `g..` changes the current directory to the top level of the working tree.
 
-### Shadows
+Settings
+--------
 
-The following aliases may shadow system commands:
-
-  * `gb` shadows a [build tool for the Go programming language](https://getgb.io/).
-  * `gm` shadows [GraphicsMagick](http://www.graphicsmagick.org/).
-  * `gpt` shadows the GUID partition table maintenance utility.
-  * `grc` shadows [Generic Colouriser](https://github.com/garabik/grc).
-  * `gs` shadows [Ghostscript](https://www.ghostscript.com/).
-
-If you frequently use the above commands, you may wish to disable this module
-altogether, or to disable the specific aliases with `unalias` at the bottom of
-your `.zshrc`.
+By default, all aliases are defined with a `g` prefix, as you can see above. But
+some of the default aliases may shadow system commands, like `gpt` for the GUID
+partition table maintenance utility.
 
 You can temporarily bypass an alias by prefixing it with a backward slash:
 `\gpt`.
+
+Or you can use the following zstyle if you wish to customize the prefix used to
+define all aliases:
+
+    zstyle ':zim:git' aliases-prefix 'G'
 
 Functions
 ---------

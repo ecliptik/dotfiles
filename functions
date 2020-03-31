@@ -27,3 +27,17 @@ dest=`echo ${source} | sed -e "s/mkv/mp4/g"`
 /usr/bin/HandBrakeCLI -e x264 -q 22.0 -r 29.97 --pfr -a 1 -E faac -B 256 -6 dpl2 -R Auto -D 1.5 -f mp4 -Y 1080 -X 1920 --loose-anamorphic --keep-display-aspect --large-file -i ${source} -o /${outputdir}/${dest} > ${mp4log}
 
 }
+
+function kubectlgetall {
+  for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+    echo "Resource:" $i
+    kubectl -n ${1} get --ignore-not-found ${i}
+  done
+}
+
+ecrlogin ()
+{
+unset dockerlogin
+dockerlogin=`aws ecr get-login --no-include-email`
+${dockerlogin}
+}

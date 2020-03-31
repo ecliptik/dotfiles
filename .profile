@@ -54,3 +54,6 @@ if [ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]; then
 fi
 
 export PATH="$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
