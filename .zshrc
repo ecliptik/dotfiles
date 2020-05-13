@@ -61,6 +61,10 @@ if [ "${ZSH_VERSION}" ]; then
     export KEYTIMEOUT=1
 fi
 
+#Use jenv to select java versions
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
 #Build a list of sources with common_sources as overrides
 sources="${pre_sources} ${shell_sources} ${common_sources}"
 
