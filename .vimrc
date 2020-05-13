@@ -127,3 +127,29 @@ call pathogen#helptags()
 " Vim visual search/replace
 " https://www.reddit.com/r/vim/comments/19sm9v/replace_all_instances_of_currently_highlighted/
 " Select visual, use * to select all in file, then :%s//TEXT_TOREPLACE/g
+"
+let s:screen  = &term =~ 'screen'
+let s:tmux = &term =~ 'tmux'
+let s:xterm   = &term =~ 'xterm'
+
+" make use of Xterm "bracketed paste mode"
+" https://cirw.in/blog/bracketed-paste
+if s:screen || s:xterm || s:tmux
+  function! s:BeginXTermPaste(ret)
+    set paste
+    return a:ret
+  endfunction
+
+  " enable bracketed paste mode on entering Vim
+  let &t_ti .= "\e[?2004h"
+
+  " disable bracketed paste mode on leaving Vim
+  let &t_te = "\e[?2004l" . &t_te
+
+  set pastetoggle=<Esc>[201~
+  inoremap <expr> <Esc>[200~ <SID>BeginXTermPaste("")
+  nnoremap <expr> <Esc>[200~ <SID>BeginXTermPaste("i")
+  vnoremap <expr> <Esc>[200~ <SID>BeginXTermPaste("c")
+  cnoremap <Esc>[200~ <nop>
+  cnoremap <Esc>[201~ <nop>
+endif
