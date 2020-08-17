@@ -111,9 +111,9 @@ map <C-c> "+y<CR>
 vnoremap s/ y:s/<c-r>/
 
 " Color scheme (terminal)
-set t_Co=256
 set background=light
 let g:solarized_termcolors=256
+let g:solarized_termtrans = 1 "
 colorscheme solarized
 
 " Vim visual search/replace
