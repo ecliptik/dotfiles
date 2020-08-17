@@ -1,33 +1,23 @@
-#
-# startup file read in interactive login shells
-#
-# The following code helps us by optimizing the existing framework.
-# This includes zcompile, zcompdump, etc.
-#
+() {
+  setopt LOCAL_OPTIONS CASE_GLOB EXTENDED_GLOB
+  autoload -Uz zrecompile
+  local zdumpfile zfile
 
-(
-  local dir file
-  setopt LOCAL_OPTIONS EXTENDED_GLOB
-  autoload -U zrecompile
+  # Compile the completion cache; significant speedup
+  zstyle -s ':zim:completion' dumpfile 'zdumpfile' || zdumpfile=${ZDOTDIR:-${HOME}}/.zcompdump
+  if [[ -f ${zdumpfile} ]]; then
+    zrecompile -p ${1} ${zdumpfile} || return 1
+  fi
 
-  # zcompile the completion cache; siginificant speedup
-  zrecompile -pq ${ZDOTDIR:-${HOME}}/${zcompdump_file:-.zcompdump}
-
-  # zcompile .zshrc
-  zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshrc
-
-  # zcompile enabled module autoloaded functions
-  for dir in ${ZIM_HOME}/modules/${^zmodules}/functions(/FN); do
-    zrecompile -pq ${dir}.zwc ${dir}/^(_*|prompt_*_setup|*.*)(-.N)
+  # Compile Zsh startup files
+  for zfile in ${ZDOTDIR:-${HOME}}/.z(shenv|profile|shrc|login|logout)(N-.); do
+    zrecompile -p ${1} ${zfile} || return 1
   done
 
-  # zcompile enabled module scripts
-  for file in ${ZIM_HOME}/modules/${^zmodules}/(^*test*/)#*.zsh{,-theme}(.NLk+1); do
-    zrecompile -pq ${file}
+  # Compile Zim scripts
+  for zfile in /Users/mwaltz/.zim/(^*test*/)#*.zsh(|-theme)(N-.); do
+    zrecompile -p ${1} ${zfile} || return 1
   done
 
-  # zcompile all prompt setup scripts
-  for file in ${ZIM_HOME}/modules/prompt/functions/prompt_*_setup; do
-    zrecompile -pq ${file}
-  done
-) &!
+  if [[ ${1} != -q ]] print -P 'Done with compile.'
+} "${@}"

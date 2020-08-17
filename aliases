@@ -1,22 +1,4 @@
 alias jezzy="ssh -Y -C micheal@192.168.7.250"
-alias be="bundle exec"
-alias podrun="kubectl run --generator=run-pod/v1 -i --rm=true --tty debian --image=debian:buster -- /bin/bash"
-alias grafana="kubectl -n monitoring port-forward svc/grafana 3000"
-alias prometheus="kubectl -n monitoring port-forward svc/prometheus-k8s 9090"
-
-#Set aliases depending on OS
-case ${os_name_generic} in
-    Linux*|Darwin*)
-        #Use htop
-        if [ -x /usr/bin/htop ]; then
-            alias top='/usr/bin/htop'
-        fi
-
-        #Use colors for ls
-        eval `dircolors -b`
-    ;;
-esac
-
 alias ksecret="kubectl ksd get secret ${1} -o yaml"
-alias getimages="kubectl describe deployments | grep 'Image:' | uniq | sort"
 alias k="kubectl"
+alias ls="ls --color"

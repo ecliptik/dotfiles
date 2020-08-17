@@ -4,16 +4,8 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" TODO: Load plugins here (pathogen or vundle)
-
 " Turn on syntax highlighting
 syntax on
-
-"Nerdtree
-"autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " For plugins to load correctly
 filetype plugin indent on
@@ -120,9 +112,9 @@ vnoremap s/ y:s/<c-r>/
 
 " Color scheme (terminal)
 set t_Co=256
-set background=dark
-execute pathogen#infect()
-call pathogen#helptags()
+set background=light
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " Vim visual search/replace
 " https://www.reddit.com/r/vim/comments/19sm9v/replace_all_instances_of_currently_highlighted/
