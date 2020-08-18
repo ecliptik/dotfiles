@@ -10,9 +10,6 @@ syntax on
 " For plugins to load correctly
 filetype plugin indent on
 
-" TODO: Pick a leader key
-" let mapleader = ","
-
 " Security
 set modelines=0
 
@@ -22,9 +19,6 @@ set number
 "Highlight current line
 set cursorline
 hi cursorline cterm=none term=none
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-hi CursorLine guibg=#303000 ctermbg=234
 
 " Blink cursor on error instead of beeping (grr)
 set visualbell
@@ -88,21 +82,18 @@ vnoremap <F1> :set invfullscreen<CR>
 map <leader>q gqip
 
 " Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
 set list
+set listchars=tab:▸\ ,eol:¬
 " Uncomment this to enable by default:
-" set list " To enable by default
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
-hi ExtraWhitespace ctermbg=cyan guibg=cyan
-match ExtraWhitespace /\s\+$/
-match ExtraWhitespace /\t/
-
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
 autocmd! BufRead,BufNewFile *.json set filetype=json
 autocmd! BufRead,BufNewFile *.markdown,*.mdown,*.mkd,*.mkdn,*.md set filetype=markdown
 
