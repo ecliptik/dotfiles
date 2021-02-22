@@ -7,4 +7,4 @@ spaceship-prompt/
 .netrwhist
 .mutt/mailboxes
 .mutt/cache
-.mutt/*.asc
+*.pyc
