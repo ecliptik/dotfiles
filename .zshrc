@@ -160,5 +160,8 @@ for sourcefile in ${sources}; do
     fi
 done
 
+
+fpath=( $fpath)
 autoload -U promptinit; promptinit
 prompt spaceship
+fpath=($fpath "/home/micheal/.zfunctions")
