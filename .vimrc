@@ -88,7 +88,7 @@ set listchars=tab:▸\ ,eol:¬
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=yellow guibg=yellow
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=166 guibg=166
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
