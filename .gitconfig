@@ -6,5 +6,6 @@
     default = simple
 [core]
     editor = vim
+    trustctime = false
 [commit]
     gpgsign = true
