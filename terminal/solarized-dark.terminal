@@ -157,6 +157,8 @@
 	</data>
 	<key>Bell</key>
 	<false/>
+	<key>CursorBlink</key>
+	<true/>
 	<key>CursorColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
