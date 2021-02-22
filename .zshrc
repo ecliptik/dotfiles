@@ -123,8 +123,7 @@ common_sources="${dotfiles}/functions \
                 ${dotfiles}/aliases \
                 ${dotfiles}/.gpg_config \
                 ${HOME}/local \
-                ${HOME}/.demandbase \
-                ${HOME}/.rvm/scripts/rvm"
+                ${HOME}/.demandbase
 
 
 ##zsh specific sources
@@ -165,3 +164,6 @@ fpath=( $fpath)
 autoload -U promptinit; promptinit
 prompt spaceship
 fpath=($fpath "/home/micheal/.zfunctions")
+
+#Setup pyenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
