@@ -1,0 +1,29 @@
+[general]
+accounts = Fastmail
+pythonfile = ~/.mutt/.offlineimap.py
+
+[Account Fastmail]
+localrepository = Local
+remoterepository = RemoteRW
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Maildir
+
+[Repository RemoteRW]
+type = IMAP
+remotehost = imap.fastmail.com
+remoteusereval = get_pass("/fastmail/imap/username")
+remotepasseval = get_pass("/fastmail/imap/password")
+
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda foldername: not re.search('(^/Cron$|^/Junk$|^migrated[a-zA-Z]?.*$)', foldername)
+createfolders = False
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(foldername)s"
+sep = " "
+footer = "\n"
