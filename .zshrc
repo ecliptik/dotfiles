@@ -123,8 +123,7 @@ common_sources="${dotfiles}/functions \
                 ${dotfiles}/aliases \
                 ${dotfiles}/.gpg_config \
                 ${HOME}/local \
-                ${HOME}/.demandbase \
-                ${HOME}/.rvm/scripts/rvm"
+                ${HOME}/.demandbase"
 
 
 ##zsh specific sources
@@ -150,6 +149,9 @@ fi
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
+#Set awscli path
+export PATH="/usr/local/opt/awscli@1/bin:$PATH"
+
 #Build a list of sources with common_sources as overrides
 sources="${pre_sources} ${shell_sources} ${common_sources}"
 
@@ -162,3 +164,6 @@ done
 
 autoload -U promptinit; promptinit
 prompt spaceship
+
+#Setup pyenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
