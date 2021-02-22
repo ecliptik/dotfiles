@@ -162,8 +162,11 @@ for sourcefile in ${sources}; do
     fi
 done
 
+
+fpath=( $fpath)
 autoload -U promptinit; promptinit
 prompt spaceship
+fpath=($fpath "${HOME}/.zfunctions")
 
 #Setup pyenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
