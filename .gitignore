@@ -5,3 +5,6 @@ oh-my-zsh/cache/
 .zim
 spaceship-prompt/
 .netrwhist
+.mutt/mailboxes
+.mutt/cache
+.mutt/*.asc
