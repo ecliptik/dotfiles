@@ -1,0 +1,90 @@
+set ssl_force_tls = yes
+set sort = "reverse-date-received"
+set signature = "~/.mutt/signature"
+set include # include message in replies
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+#Identity
+set realname = "Micheal Waltz"
+
+# Maildir configuration
+set mbox_type=Maildir
+set folder="~/Maildir"
+source ~/.mutt/mailboxes
+set spoolfile="+INBOX"
+set record="+Sent"
+set postponed="+Drafts"
+set trash="+Trash"
+
+#Set VIM spellchecking
+set editor="vim -c 'set spell spelllang=en_us'"
+
+#Theme
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
+
+# Sidebar --------------------------------------
+set mail_check_stats=yes
+set sidebar_visible = yes
+set sidebar_width   = 24
+color sidebar_new color33 color230
+color sidebar_flagged color160 color230
+color sidebar_divider color244 color230
+color sidebar_highlight color254 color166
+color sidebar_indicator color254 color166
+set sidebar_format="%B%* %N"
+set sidebar_new_mail_only=yes
+set sidebar_sort_method=unread
+set sidebar_divider_char ='  │'
+
+# Sidebar Navigation ---------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+
+# Status Bar -----------------------------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Pager View Options ---------------------------------
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+#Bind keys
+# Sync email
+macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
+
+#Recall draft
+bind index p recall-message
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+#Archive message
+macro index,pager a ":set confirmappend=no delete=yes \n<clear-flag>N<tag-prefix><save-message>=Archive<enter>\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"       "Archive message"
+
+#Flag message
+bind  index,pager f   flag-message
+
+# Pager Key Bindings ---------------------------------
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+bind pager R  group-reply
+
+#Setup GPG
+source ~/.mutt/gpg.rc
+
+#Uses gpg to decrypt configuration so it's not in plaintext
+# Default smtp account
+source "gpg -d ~/.mutt/fastmail.smtp.asc|"
+
+# Macros for switching SMTP accounts
+macro index G '<enter-command>source "gpg -d ~/.mutt/gmail.smtp.asc|"<enter>'
+macro index F '<enter-command>source "gpg -d ~/.mutt/fastmail.smtp.asc|"<enter>'
