@@ -170,6 +170,3 @@ fpath=($fpath "${HOME}/.zfunctions")
 
 #Setup pyenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-#Start gpg
-gpgconf --create-socketdir
