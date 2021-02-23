@@ -83,8 +83,8 @@ source ~/.mutt/gpg.rc
 
 #Uses gpg to decrypt configuration so it's not in plaintext
 # Default smtp account
-source "gpg -d ~/.mutt/fastmail.smtp.asc|"
+source "pass mutt/smtp/fastmail.smtp|"
 
 # Macros for switching SMTP accounts
-macro index G '<enter-command>source "gpg -d ~/.mutt/gmail.smtp.asc|"<enter>'
-macro index F '<enter-command>source "gpg -d ~/.mutt/fastmail.smtp.asc|"<enter>'
+macro index G '<enter-command>source "pass mutt/smtp/gmail.smtp|"<enter>'
+macro index F '<enter-command>source "pass mutt/smtp/fastmail.smtp|"<enter>'
