@@ -20,8 +20,9 @@ set number
 set cursorline
 hi cursorline cterm=none term=none
 
-" Blink cursor on error instead of beeping (grr)
+" Blink cursor on error instead of beeping and flashing the screen
 set visualbell
+set t_vb=
 
 " Encoding
 set encoding=utf-8
