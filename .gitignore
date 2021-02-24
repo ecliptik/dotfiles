@@ -8,3 +8,4 @@ spaceship-prompt/
 .mutt/mailboxes
 .mutt/cache
 *.pyc
+.irssi/certs
