@@ -15,7 +15,7 @@
   done
 
   # Compile Zim scripts
-  for zfile in /${HOME}/.zim/(^*test*/)#*.zsh(|-theme)(N-.); do
+  for zfile in /Users/micheal/.zim/(^*test*/)#*.zsh(|-theme)(N-.); do
     zrecompile -p ${1} ${zfile} || return 1
   done
 
