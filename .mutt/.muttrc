@@ -16,6 +16,7 @@ set spoolfile="+INBOX"
 set record="+Sent"
 set postponed="+Drafts"
 set trash="+Trash"
+set header_cache="/var/tmp/mutt"
 
 #Set VIM spellchecking
 set editor="vim -c 'set spell spelllang=en_us'"
