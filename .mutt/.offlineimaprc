@@ -9,6 +9,7 @@ remoterepository = RemoteRW
 [Repository Local]
 type = Maildir
 localfolders = ~/Maildir
+sync_deletes = no
 
 [Repository RemoteRW]
 type = IMAP
@@ -19,6 +20,7 @@ remotepasseval = get_pass("/fastmail/imap/password")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda foldername: not re.search('(^/Cron$|^/Junk$|^migrated[a-zA-Z]?.*$)', foldername)
 createfolders = False
+sync_deletes = yes
 
 [mbnames]
 enabled = yes
