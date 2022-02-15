@@ -121,7 +121,6 @@ pre_sources="${dotfiles}/vars"
 ##Sources shared by both zsh and bash
 common_sources="${dotfiles}/functions \
                 ${dotfiles}/aliases \
-                ${dotfiles}/.gpg_config \
                 ${HOME}/local \
                 ${HOME}/.demandbase"
 
@@ -169,4 +168,7 @@ prompt spaceship
 fpath=($fpath "${HOME}/.zfunctions")
 
 #Setup pyenv
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+GPG_TTY=$(tty)
+export GPG_TTY
