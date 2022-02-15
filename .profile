@@ -49,7 +49,7 @@ for sourcefile in ${sources}; do
     fi
 done
 
-if [ -d "$HOME/.okta/bin" && ":$PATH:" != *":$HOME/.okta/bin:"* ]; then
+if [ -d "$HOME/.okta/bin" ]; then
     PATH="$HOME/.okta/bin:$PATH"
 fi
 
@@ -58,4 +58,8 @@ export PATH="$PATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-gpgconf --create-socketdir
+#gpgconf --create-socketdir
+
+#Setup Go
+export GOPATH=$HOME/work
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
