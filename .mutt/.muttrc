@@ -89,6 +89,9 @@ source ~/.mutt/gpg.rc
 # Default smtp account
 source "pass mutt/smtp/fastmail.smtp|"
 
+# Set text flowed to better render on smaller screens
+set text_flowed
+
 # Macros for switching SMTP accounts
 macro index G '<enter-command>source "pass mutt/smtp/gmail.smtp|"<enter>'
 macro index F '<enter-command>source "pass mutt/smtp/fastmail.smtp|"<enter>'
